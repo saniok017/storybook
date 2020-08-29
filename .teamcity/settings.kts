@@ -128,9 +128,8 @@ object Build : BuildType({
             scriptContent = """
                 #!/bin/bash
                 set -e -x
-                
-                yarn install
-                yarn repo-dirty-check
+
+                yarn install --frozen-lockfile
                 yarn bootstrap --core
             """.trimIndent()
             dockerImage = "node:10"
@@ -181,7 +180,7 @@ object ExamplesTemplate : Template({
                 yarn install
                 rm -rf built-storybooks
                 mkdir -p built-storybooks
-                
+
                 yarn build-storybooks
             """.trimIndent()
             dockerImage = "buildkite/puppeteer"
@@ -371,37 +370,37 @@ object SmokeTests : BuildType({
 
                 cd examples/cra-kitchen-sink
                 yarn storybook --smoke-test --quiet
-          
+
                 cd ../cra-ts-kitchen-sink
                 yarn storybook --smoke-test --quiet
-          
+
                 cd ../vue-kitchen-sink
                 yarn storybook --smoke-test --quiet
-          
+
                 cd ../svelte-kitchen-sink
                 yarn storybook --smoke-test --quiet
-          
+
                 cd ../angular-cli
                 yarn storybook --smoke-test --quiet
-          
+
                 cd ../ember-cli
                 yarn storybook --smoke-test --quiet
-          
+
                 cd ../marko-cli
                 yarn storybook --smoke-test --quiet
-          
+
                 cd ../official-storybook
                 yarn storybook --smoke-test --quiet
-          
+
                 cd ../mithril-kitchen-sink
                 yarn storybook --smoke-test --quiet
-          
+
                 cd ../riot-kitchen-sink
                 yarn storybook --smoke-test --quiet
-          
+
                 cd ../preact-kitchen-sink
                 yarn storybook --smoke-test --quiet
-          
+
                 cd ../cra-react15
                 yarn storybook --smoke-test --quiet
             """.trimIndent()
@@ -420,7 +419,7 @@ object Frontpage : BuildType({
             scriptContent = """
                 #!/bin/bash
                 set -e -x
-                
+
                 yarn bootstrap --install
                 node ./scripts/build-frontpage.js
             """.trimIndent()
@@ -448,7 +447,7 @@ object Docs : BuildType({
             scriptContent = """
                 #!/bin/bash
                 set -e -x
-                
+
                 yarn install
                 yarn build
             """.trimIndent()
@@ -490,16 +489,16 @@ object Lint : BuildType({
             scriptContent = """
                 #!/bin/bash
                 set -e -x
-                
+
                 yarn install
-                
+
                 # TODO remove after merging
                 mkdir temp-eslint-teamcity
                 cd temp-eslint-teamcity
                 yarn init -y
                 yarn add -D eslint-teamcity
                 cd ..
-                
+
                 yarn lint:js --format ./temp-eslint-teamcity/node_modules/eslint-teamcity/index.js .
                 yarn lint:md .
             """.trimIndent()
@@ -538,16 +537,16 @@ object Test : BuildType({
             scriptContent = """
                 #!/bin/bash
                 set -e -x
-                
+
                 yarn install
-                
+
                 # TODO remove after merging
                 mkdir temp-jest-teamcity
                 cd temp-jest-teamcity
                 yarn init -y
                 yarn add -D jest-teamcity
                 cd ..
-                
+
                 yarn jest --coverage -w 2 --reporters=${'$'}PWD/temp-jest-teamcity/node_modules/jest-teamcity
             """.trimIndent()
             dockerImage = "node:10"
@@ -577,7 +576,7 @@ object Coverage : BuildType({
             scriptContent = """
                 #!/bin/bash
                 set -e -x
-                
+
                 yarn install
                 yarn coverage
             """.trimIndent()
