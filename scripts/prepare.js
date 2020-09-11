@@ -69,7 +69,7 @@ function logError(type, packageJson, errorLogs) {
   );
 }
 
-const cjsAndEsmPackage = [];
+const cjsAndEsmPackage = [/lib\/api$/];
 const modulePath = path.resolve('./');
 const packageJson = getPackageJson(modulePath);
 const modules = cjsAndEsmPackage.some((regex) => modulePath.match(regex));
