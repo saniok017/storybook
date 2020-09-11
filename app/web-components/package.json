@@ -30,15 +30,14 @@
     "README.md",
     "*.js",
     "*.d.ts",
-    "ts3.5/**/*"
+    "ts3.7/**/*"
   ],
   "scripts": {
     "prepare": "node ../../scripts/prepare.js"
   },
   "dependencies": {
-    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-    "@babel/plugin-syntax-import-meta": "^7.2.0",
-    "@babel/preset-env": "^7.11.5",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-syntax-import-meta": "^7.10.4",
     "@storybook/addons": "6.1.0-alpha.8",
     "@storybook/core": "6.1.0-alpha.8",
     "@types/webpack-env": "^1.15.2",
@@ -64,9 +63,9 @@
   },
   "gitHead": "3a636538b7a15e4dcc07058d36b1dceb9b43335b",
   "typesVersions": {
-    "<=3.5": {
+    "<3.8": {
       "*": [
-        "ts3.5/*"
+        "ts3.7/*"
       ]
     }
   }
