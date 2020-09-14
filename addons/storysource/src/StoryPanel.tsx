@@ -9,7 +9,7 @@ import {
   createSyntaxHighlighterElement,
 } from '@storybook/components';
 
-import { SourceBlock, LocationsMap } from '@storybook/source-loader/extract-source';
+import { SourceBlock, LocationsMap } from '@storybook/source-loader';
 
 const StyledStoryLink = styled(Link)<{ to: string; key: string }>(({ theme }) => ({
   display: 'block',
