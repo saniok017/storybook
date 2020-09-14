@@ -1,6 +1,6 @@
 import React, { createElement, ElementType, FunctionComponent, Fragment } from 'react';
 
-import { Parameters } from '@storybook/api';
+import type { Parameters } from '@storybook/api';
 
 import { IFrame } from './IFrame';
 import { EmptyBlock } from './EmptyBlock';

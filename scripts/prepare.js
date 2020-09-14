@@ -77,6 +77,8 @@ const cjsAndEsmPackage = [
   /lib\/channels$/,
   /lib\/client-api$/,
   /lib\/client-logger$/,
+  /lib\/components$/,
+  /lib\/ui$/,
 ];
 const modulePath = path.resolve('./');
 const packageJson = getPackageJson(modulePath);

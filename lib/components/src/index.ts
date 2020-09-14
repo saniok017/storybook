@@ -3,10 +3,12 @@ export { Badge } from './Badge/Badge';
 // Typography
 export { Link } from './typography/link/link';
 export { DocumentWrapper } from './typography/DocumentWrapper';
-export {
-  SyntaxHighlighter,
+export type {
   SyntaxHighlighterProps,
   SyntaxHighlighterRendererProps,
+} from './syntaxhighlighter/syntaxhighlighter';
+export {
+  SyntaxHighlighter,
   createSyntaxHighlighterElement,
 } from './syntaxhighlighter/syntaxhighlighter';
 
@@ -34,7 +36,8 @@ export { Bar, FlexBar } from './bar/bar';
 export { AddonPanel } from './addon-panel/addon-panel';
 
 // Graphics
-export { Icons, IconsProps } from './icon/icon';
+export { Icons } from './icon/icon';
+export type { IconsProps } from './icon/icon';
 export { StorybookLogo } from './brand/StorybookLogo';
 export { StorybookIcon } from './brand/StorybookIcon';
 
